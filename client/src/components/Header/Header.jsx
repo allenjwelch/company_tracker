@@ -13,11 +13,16 @@ const Header = (props) => {
             <div className="links">
                 {
                     props.user.length > 0 ?
-                    <span onClick={props.signOut} className="header-links">Sign Out</span> :
+                    <>
+                    <span onClick={props.signOut} className="header-links">Sign Out</span>
+                    <Link to="/" className="header-links">Home</Link>
+                    <Link to="/about" className="header-links">About</Link>
+                    <Link to="/catalog" className="header-links">Catalog</Link>
+                    <Link to="/compare" className="header-links">Compare</Link>
+                    </> :
                     <span onClick={props.signInModal} className="header-links">Sign In</span>
                 }
-                <Link to="/" className="header-links">Home</Link>
-                <Link to="/about" className="header-links">About</Link>
+                
             </div>
         </header>
     )
