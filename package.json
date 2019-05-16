@@ -1,0 +1,33 @@
+{
+  "name": "company_tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allenjwelch/company_tracker.git"
+  },
+  "author": "Allen Welch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allenjwelch/company_tracker/issues"
+  },
+  "homepage": "https://github.com/allenjwelch/company_tracker#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "if-env": "^1.0.4",
+    "mysql": "^2.17.1"
+  }
+}
