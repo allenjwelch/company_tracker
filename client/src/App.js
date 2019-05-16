@@ -15,7 +15,8 @@ class App extends Component {
   }
 
   signOut() {
-    this.setState({user: ''})
+    this.setState({user: ''}, () => {
+      localStorage.removeItem('token')})
   }
 
   signInModal() {
@@ -23,7 +24,9 @@ class App extends Component {
   }
 
   signIn() {
-    this.setState({user: document.getElementById('userName').value})
+    this.setState({user: document.getElementById('userName').value}, () => {
+      localStorage.setItem('token', this.state.user)
+    })
     document.querySelector('.sign-in-container').classList.remove('active');
   }
   

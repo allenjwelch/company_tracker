@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
 
-    getAllCompanies: function(user, pass) { // just for testing..
+    getAllCompanies: function() { // just for testing..
         return axios.get(`/xxx/comp/all`)
     },
     getCompanyByName: function(id) {

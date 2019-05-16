@@ -1,5 +1,46 @@
 .catalog-page {
-    h1 {
-        color: red;
+    text-align: left;
+    padding: 20px;
+
+    p, h1 {
+        margin: 0;
+    }
+   
+    .row {
+
+        .name {
+            background: #ccc;
+            width: 100%;
+            margin-bottom: 10px;
+            h1 {
+
+            }
+        }
+
+        .comp-info, .comp-des {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+            margin-bottom: 10px;
+
+        }
+
+        .comp-info {
+            .address {
+
+            }
+        }
+
+        .comp-des {
+           
+            
+        }
+
+        .financial {
+            .chart {
+                display: inline-block;
+                width: 50%;
+            }
+        }
     }
 }
