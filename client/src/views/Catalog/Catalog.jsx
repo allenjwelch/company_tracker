@@ -1,6 +1,7 @@
-import React from 'react'; 
+import React from 'react';
 import './style.scss';
 import API from '../../utils/API';
+import CompRow from '../../components/CompRow/CompRow';
 
 class Catalog extends React.Component {
 
@@ -14,9 +15,9 @@ class Catalog extends React.Component {
 
     getAllCompanies() {
         API.getAllCompanies()
-            .then(res => 
+            .then(res =>
                 this.setState({allCompanies: res.data, }, () => {
-                    console.log(this.state.allCompanies, "state.allCompanies"); 
+                    console.log(this.state.allCompanies, "state.allCompanies");
                 }))
             .catch(err => console.log(err))
     }
@@ -28,47 +29,20 @@ class Catalog extends React.Component {
 
                 {
                     this.state.allCompanies ?
-                    <>
+                    <article className="catalog">
                         {
-                            this.state.allCompanies.map(comp => {
+                            this.state.allCompanies.sort((a,b) => a.name - b.name ? 1 : -1).map(comp => {
                                 return (
-                                    <div key={comp.id} className="row">
-                                        <div className="name">
-                                            <h1>{comp.name} <span>{comp.status}</span></h1>
-                                        </div>
-                                        <div className="comp-info">
-                                            <p className="address">{comp.street_address}</p>
-                                            <p className="address">{comp.city}, {comp.state}</p>
-                                        </div>
-
-                                        <div className="comp-des">
-                                            <p className="description">{comp.description}</p>
-                                            <p className="contact-name">{comp.contact_name}</p>
-                                            <p className="contact-phone">{comp.contact_phone}</p>
-                                        </div>
-
-                                        <div className="financial">
-                                            <div className="chart">
-                                                <p>{comp.financial_revenue}</p>
-                                            </div>
-
-                                            <div className="chart">
-                                                <p>{comp.financial_earnings}</p>
-                                            </div>
-                                        </div>
-                                    
-                                    
-                                    
-                                    </div>
-                                    
+                                    <CompRow key={comp.id} comp={comp} />
                                 )
                             })
                         }
-                    </> : <h3>There are currently no companies in your catalog.</h3>
+                    </article> : <h3>There are currently no companies in your catalog.</h3>
                 }
             </section>
         )
     }
 }
 
-export default Catalog; 
+
+export default Catalog;

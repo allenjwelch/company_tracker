@@ -1,0 +1,93 @@
+.comp-row {
+    p, h1 {
+        margin: 0;
+    }
+
+    .name {
+        position: relative;
+        background: #ccc;
+        margin-bottom: 15px;
+        cursor: pointer;
+        padding: 5px;
+        h1 {
+            font: 700 20px 'Arial', sans-serif;
+            padding-left: 10px;
+            span {
+                font: 400 italic 14px 'Arial', sans-serif;
+            }
+        }
+
+        &:after {
+            content: '';
+            background: url('../../assets/icons/arrow.png') no-repeat center;
+            background-size: contain;
+            transform: rotate(90deg);
+            display: block;
+            height: 15px;
+            width: 15px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            transition: .5s all ease;
+        }
+    }
+
+    .comp-info {
+        // height: 0;
+        // overflow: hidden;
+        // transition: .5s all ease-in-out;
+        display: none;
+
+        .comp-address, .comp-des {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+            margin-bottom: 10px;
+
+        }
+
+        .comp-address {
+            .address {
+
+            }
+        }
+
+        .comp-des {
+            p {
+                span {
+                    font-weight: 700;
+                }
+            }
+
+        }
+
+        .financial {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            .chart {
+                display: inline-block;
+                width: 50%;
+                max-width: 400px;
+
+                #revenue-chart {
+                    width: 80%;
+                }
+            }
+        }
+    }
+
+    &.is-active {
+        .name:after {
+            transform: rotate(270deg);
+        }
+
+        .comp-info {
+            // height: auto;
+            display: block;
+            padding: 5px 10px 20px;
+        }
+
+    }
+
+}

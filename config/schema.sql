@@ -1,23 +1,31 @@
-CREATE DATABASE tracker; 
+CREATE DATABASE tracker;
 
-USE tracker; 
+USE tracker;
 
 CREATE TABLE companies (
     id Int( 11 ) AUTO_INCREMENT NOT NULL,
     name VARCHAR( 255) NOT NULL,
-	description VARCHAR(255), 
+	description VARCHAR(255),
     status VARCHAR( 255 ) NOT NULL,
     street_address VARCHAR( 255 ),
-    city VARCHAR(255), 
-    state VARCHAR(255), 
-    phone VARCHAR(255), 
-    contact_name VARCHAR(255), 
-	contact_phone VARCHAR(255), 
-	financial_revenue INT(11), 
-	financial_earnings INT(11), 
-    PRIMARY KEY (id) 
+    city VARCHAR(255),
+    state VARCHAR(255),
+    phone VARCHAR(255),
+    contact_name VARCHAR(255),
+	contact_phone VARCHAR(255),
+	financial_revenue_total INT(11),
+	financial_revenue_expected INT(11),
+	financial_earnings_year_1 INT(11),
+	financial_earnings_income_1 INT(11),
+	financial_earnings_year_2 INT(11),
+    financial_earnings_income_2 INT(11),
+	financial_earnings_year_3 INT(11),
+    financial_earnings_income_3 INT(11),
+	financial_earnings_year_4 INT(11),
+    financial_earnings_income_4 INT(11),
+    PRIMARY KEY (id)
 );
 
-INSERT INTO companies(name, status, description, street_address, city, state, phone, contact_name, contact_phone, financial_revenue, financial_earnings)
-VALUES ('LexCorp', 'Pending', 'Primary target', '123 Main St.', 'Atlanta' , 'Georgia', '123-456-1234', 'Joe Smith', '111-111-2222', 10000000, 20000000),
-('Another Company', 'Pending', 'Secondary target', '125 Main St.', 'Atlanta' , 'Georgia', '404-222-3434', 'Mike Sanders', '234-456-3333', 5400000, 80000);
+INSERT INTO companies(name, status, description, street_address, city, state, phone, contact_name, contact_phone, financial_revenue_total, financial_revenue_expected, financial_earnings_year_1, financial_earnings_income_1, financial_earnings_year_2, financial_earnings_income_2, financial_earnings_year_3, financial_earnings_income_3, financial_earnings_year_4, financial_earnings_income_4)
+VALUES ('LexCorp', 'Pending', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, ducimus?', '123 Main St.', 'Atlanta' , 'Georgia', '123-456-1234', 'Joe Smith', '111-111-2222', 87928, 10000000, 2015, 879834, 2016, 329874, 2017, 9087423, 2018, 897234),
+('Another Company', 'Pending', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil iusto quos tempora maiores deleniti quam fuga, iste cupiditate error quod.', '125 Main St.', 'Atlanta' , 'Georgia', '404-222-3434', 'Mike Sanders', '234-456-3333', 7830000, 8000000, 2015, 91283, 2016, 67899, 2017, 123452, 2018, 563478);

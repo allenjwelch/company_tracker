@@ -4,22 +4,23 @@
 
 .sign-in, .overlay {
     opacity: 0;
-    transition: .5s all ease-in-out; 
-    position: fixed; 
-    top: 0; 
-    bottom: 0; 
-    right: 0; 
-    left: 0; 
+    transition: .5s all ease-in-out;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     margin: auto;
     width: 360px;
     height: 400px;
     padding: 50px 20px;
     background: #fff;
+    z-index: -1;
 }
 
 .sign-in-container.active .sign-in{
     opacity: 1;
-    z-index: 2;
+    z-index: 5;
 }
 
 .sign-in-container.active .overlay {
