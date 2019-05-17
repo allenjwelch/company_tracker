@@ -1,16 +1,21 @@
-.add-page {
+.add-page, .edit-page {
 
     input, textarea, select {
         width: 90%;
         padding: 10px;
         border: none;
         border-bottom: 1px solid #ccc;
+        font: 400 14px 'Arial', sans-serif;
     }
     textarea {
         min-height: 100px;
     }
     input {
         margin: 5px 0;
+    }
+
+    select {
+        width: 95%;
     }
 
     .form {
@@ -37,9 +42,20 @@
         }
 
         button {
-            margin-top: 40px;
+            margin: 40px 10px;
             width: 40%;
             padding: 10px;
+
+            &.del-btn {
+                background: #ce2525; 
+                border: 1px solid #ce2525;
+                color: #fff;
+
+                &:hover {
+                    color: #ce2525;
+                    background: #fff;
+                }
+            }
         }
     }
 

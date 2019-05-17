@@ -48,38 +48,45 @@ router.post('/new', (req, res) => {
     })
 })
 
-// router.put("/update", (req, res) => {
-//     console.log("Updating: ", req.body.updatedMeal);
+router.put("/update", (req, res) => {
+    console.log("Updating: ", req.body.compUpdate);
 
-//     connection.query(`
-//         UPDATE meals SET
-//         meal = '${req.body.updatedMeal.meal}',
-//         prep_time = '${req.body.updatedMeal.prep_time}',
-//         ingred1 = '${req.body.updatedMeal.ingred1}',
-//         ingred2 = '${req.body.updatedMeal.ingred2}',
-//         ingred3 = '${req.body.updatedMeal.ingred3}',
-//         ingred4 = '${req.body.updatedMeal.ingred4}',
-//         ingred5 = '${req.body.updatedMeal.ingred5}',
-//         ingred6 = '${req.body.updatedMeal.ingred6}',
-//         ingred7 = '${req.body.updatedMeal.ingred7}',
-//         ingred8 = '${req.body.updatedMeal.ingred8}'
-//         WHERE user_id = '${req.body.uid}'
-//         AND id = '${req.body.updatedMeal.id}';`, (err, data) => {
-//             if (err) throw err;
-//             res.send(data);
-//         })
-// });
+    connection.query(`
+        UPDATE companies SET
+        name = '${req.body.compUpdate.name}',
+        status = '${req.body.compUpdate.status}',
+        description = '${req.body.compUpdate.description}',
+        street_address = '${req.body.compUpdate.street_address}',
+        city = '${req.body.compUpdate.city}',
+        state = '${req.body.compUpdate.state}',
+        phone = '${req.body.compUpdate.phone}',
+        contact_name = '${req.body.compUpdate.contact_name}',
+        contact_phone = '${req.body.compUpdate.contact_phone}',
+        financial_revenue_total = '${req.body.compUpdate.financial_revenue_total}',
+        financial_revenue_expected = '${req.body.compUpdate.financial_revenue_expected}',
+        financial_earnings_year_1 = '${req.body.compUpdate.financial_earnings_year_1}',
+        financial_earnings_income_1 = '${req.body.compUpdate.financial_earnings_income_1}',
+        financial_earnings_year_2 = '${req.body.compUpdate.financial_earnings_year_2}',
+        financial_earnings_income_2 = '${req.body.compUpdate.financial_earnings_income_2}',
+        financial_earnings_year_3 = '${req.body.compUpdate.financial_earnings_year_3}',
+        financial_earnings_income_3 = '${req.body.compUpdate.financial_earnings_income_3}',
+        financial_earnings_year_4 = '${req.body.compUpdate.financial_earnings_year_4}',
+        financial_earnings_income_4 = '${req.body.compUpdate.financial_earnings_income_4}'
+        WHERE id = '${req.body.compUpdate.id}';`, (err, data) => {
+            if (err) throw err;
+            res.send(data);
+        })
+});
 
-// router.delete("/delete/:uid/:meal_id", (req, res) => {
-//     console.log("Deleting meal: ", req.params)
-//     connection.query(`
-//     DELETE FROM meals
-//     WHERE user_id = '${req.params.uid}'
-//     AND id = '${req.params.meal_id}';`, (err, data) => {
-//         if (err) throw err;
-//         res.send(data);
-//     })
-// })
+router.delete("/byefelicia/:id/", (req, res) => {
+    console.log("Deleting company: ", req.params)
+    connection.query(`
+    DELETE FROM companies
+    WHERE id = '${req.params.id}';`, (err, data) => {
+        if (err) throw err;
+        res.send(data);
+    })
+})
 
 
 module.exports = router;

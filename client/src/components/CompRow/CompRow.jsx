@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Chart from 'chart.js';
 
 import './style.scss';
@@ -69,6 +69,15 @@ class CompRow extends React.Component {
                 </div>
 
                 <div className="comp-info">
+                    <div className="edit">
+                        <Link to={{
+                            pathname: '/edit',
+                            state: {
+                                comp: this.props
+                            }
+                            }}>Edit</Link>
+                    </div>
+                    
                     <div className="comp-address">
                         <p className="address">{this.props.comp.street_address}</p>
                         <p className="address">{this.props.comp.city}, {this.props.comp.state}</p>
