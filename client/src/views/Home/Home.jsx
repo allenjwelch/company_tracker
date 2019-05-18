@@ -4,6 +4,10 @@ import './style.scss';
 
 class Home extends React.Component {
 
+    componentDidMount() {
+        console.log(this.props)
+    }
+
     render() {
         return (
             <section className='home-page'>

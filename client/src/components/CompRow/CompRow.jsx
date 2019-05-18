@@ -63,7 +63,7 @@ class CompRow extends React.Component {
 
     render() {
         return (
-            <div key={this.props.comp.id} className="comp-row">
+            <article key={this.props.comp.id} className="comp-row">
                 <div className="name" onClick={(e) => this.toggleSlide(e)}>
                     <h1>{this.props.comp.name} <span>{this.props.comp.status}</span></h1>
                 </div>
@@ -100,7 +100,7 @@ class CompRow extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </article>
         )
     }
 

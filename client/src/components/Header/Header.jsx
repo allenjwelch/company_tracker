@@ -5,8 +5,6 @@ import './style.css';
 
 const Header = (props) => {
 
-
-
     console.log(props)
     return (
 

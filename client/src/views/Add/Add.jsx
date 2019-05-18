@@ -1,69 +1,66 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom'
 import './style.scss';
 import API from '../../utils/API';
 
 class Add extends React.Component {
+
     state = {
-        name: '',
-        status: '',
-        phone: '',
-        street_address: '',
-        city: '',
-        state: '',
-        description: '',
-        contact_name:'',
-        contact_phone: '',
-        financial_earnings_year_1: '',
-        financial_earnings_income_1: '',
-        financial_earnings_year_2: '',
-        financial_earnings_income_2: '',
-        financial_earnings_year_3: '',
-        financial_earnings_income_3: '',
-        financial_earnings_year_4: '',
-        financial_earnings_income_4: '',
-        financial_revenue_expected: '',
-        financial_revenue_total: '',
+        // comp: {
+            name: '',
+            status: '',
+            phone: '',
+            street_address: '',
+            city: '',
+            state: '',
+            description: '',
+            contact_name:'',
+            contact_phone: '',
+            financial_earnings_year_1: '',
+            financial_earnings_income_1: '',
+            financial_earnings_year_2: '',
+            financial_earnings_income_2: '',
+            financial_earnings_year_3: '',
+            financial_earnings_income_3: '',
+            financial_earnings_year_4: '',
+            financial_earnings_income_4: '',
+            financial_revenue_expected: '',
+            financial_revenue_total: '',
+        // }
+        
+    }
+
+    componentDidMount() {
+        console.log(this.props)
     }
 
     handleInputChange = (e) => {
         const { name, value } = e.target;
-        if(
-            name === 'financial_earnings_year_1' ||
-            name === 'financial_earnings_year_2' ||
-            name === 'financial_earnings_year_3' ||
-            name === 'financial_earnings_year_4' ||
-            name === 'financial_earnings_income_1' ||
-            name === 'financial_earnings_income_2' ||
-            name === 'financial_earnings_income_3' ||
-            name === 'financial_earnings_income_4' ||
-            name === 'financial_revenue_total' ||
-            name === 'financial_revenue_expected'
-        ) {
-            let intValue = parseInt(value);
-            this.setState({
-                [name]: intValue
-            });
-        } else {
-            this.setState({
-                [name]: value
-            });
-        }
+        this.setState({
+            [name]: value
+        });
     };
 
     handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
         API.postNewCompany(this.state)
-        //   .then(res => this.setState({ recipes: res.data }))
-          .catch(err => console.log(err));
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err))
+            .then(console.log('company added...'))
+            .then(() => this.setState({ toCatalog: true }))
     };
 
     render() {
+        if (this.state.toCatalog === true) {
+            return <Redirect to='/catalog' />
+        } else if (this.props.user === '' || this.props.user === null ) {
+            return <Redirect to='/' />
+        }
         return (
             <section className='add-page'>
                 <h1>Add Page</h1>
+                
                 <div className="form">
-
 
                     <div className="col">
                         <input

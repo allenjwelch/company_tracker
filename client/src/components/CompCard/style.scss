@@ -1,0 +1,33 @@
+.comp-card {
+    width: 30%; 
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: 0 0 10px #333;
+    padding: 5px; 
+    margin: 10px;
+    min-height: 200px;
+
+    h1 {
+        margin: 10px 20px 15px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    p {
+        margin-bottom: 5px;
+
+        span {
+            font-weight: 700;
+        }   
+    }
+
+    .data {
+        .address p {
+            margin: 0;
+        }
+
+        .status .ital {
+            font-style: italic;
+        }
+    }
+}

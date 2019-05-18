@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom'
 import './style.scss';
 import API from '../../utils/API';
 import CompRow from '../../components/CompRow/CompRow';
@@ -11,6 +12,7 @@ class Catalog extends React.Component {
 
     componentDidMount() {
         this.getAllCompanies()
+        console.log(this.props)
     }
 
     getAllCompanies() {
@@ -23,6 +25,9 @@ class Catalog extends React.Component {
     }
 
     render() {
+        if (this.props.user === '' || this.props.user === null ) {
+            return <Redirect to='/' />
+        }
         return (
             <section className='catalog-page'>
                 <h1>Catalog Page</h1>
@@ -33,7 +38,7 @@ class Catalog extends React.Component {
                         {
                             this.state.allCompanies.sort((a,b) => a.name - b.name ? 1 : -1).map(comp => {
                                 return (
-                                    <CompRow key={comp.id} comp={comp} />
+                                    <CompRow key={comp.id} user={this.props.user} comp={comp} />
                                 )
                             })
                         }

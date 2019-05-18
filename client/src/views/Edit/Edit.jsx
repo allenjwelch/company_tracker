@@ -1,33 +1,44 @@
 import React from 'react'; 
 import API from '../../utils/API';
+import { Redirect } from 'react-router-dom'
 import '../Add/style.scss';
 
 class Edit extends React.Component {
 
-    componentWillMount() {
+    state = {
+        toCatalog: false,
+    }
+
+    componentDidMount() {
+        console.log(this.props)
         const { comp } = this.props.location.state.comp
-        // console.log(comp)
+        console.log(comp)
+        console.log(this.props.location.state.comp.user);
         this.setState({
-            id: comp.id,
-            name: comp.name,
-            status: comp.status,
-            phone: comp.phone,
-            street_address: comp.street_address,
-            city: comp.city,
-            state: comp.state,
-            description: comp.description,
-            contact_name: comp.contact_name,
-            contact_phone: comp.contact_phone,
-            financial_earnings_year_1: comp.financial_earnings_year_1,
-            financial_earnings_income_1: comp.financial_earnings_income_1,
-            financial_earnings_year_2: comp.financial_earnings_year_2,
-            financial_earnings_income_2: comp.financial_earnings_income_2,
-            financial_earnings_year_3: comp.financial_earnings_year_3,
-            financial_earnings_income_3: comp.financial_earnings_income_3,
-            financial_earnings_year_4: comp.financial_earnings_year_4,
-            financial_earnings_income_4: comp.financial_earnings_income_4,
-            financial_revenue_expected: comp.financial_revenue_expected,
-            financial_revenue_total: comp.financial_revenue_total
+            // comp: {
+                id: comp.id,
+                name: comp.name,
+                status: comp.status,
+                phone: comp.phone,
+                street_address: comp.street_address,
+                city: comp.city,
+                state: comp.state,
+                description: comp.description,
+                contact_name: comp.contact_name,
+                contact_phone: comp.contact_phone,
+                financial_earnings_year_1: comp.financial_earnings_year_1,
+                financial_earnings_income_1: comp.financial_earnings_income_1,
+                financial_earnings_year_2: comp.financial_earnings_year_2,
+                financial_earnings_income_2: comp.financial_earnings_income_2,
+                financial_earnings_year_3: comp.financial_earnings_year_3,
+                financial_earnings_income_3: comp.financial_earnings_income_3,
+                financial_earnings_year_4: comp.financial_earnings_year_4,
+                financial_earnings_income_4: comp.financial_earnings_income_4,
+                financial_revenue_expected: comp.financial_revenue_expected,
+                financial_revenue_total: comp.financial_revenue_total
+            // }, 
+            
+            
         }, () => {
             console.log(this.state)
         })
@@ -35,27 +46,9 @@ class Edit extends React.Component {
 
     handleInputChange = (e) => {
         const { name, value } = e.target;
-        if(
-            name === 'financial_earnings_year_1' ||
-            name === 'financial_earnings_year_2' ||
-            name === 'financial_earnings_year_3' ||
-            name === 'financial_earnings_year_4' ||
-            name === 'financial_earnings_income_1' ||
-            name === 'financial_earnings_income_2' ||
-            name === 'financial_earnings_income_3' ||
-            name === 'financial_earnings_income_4' ||
-            name === 'financial_revenue_total' ||
-            name === 'financial_revenue_expected'
-        ) {
-            let intValue = parseInt(value);
-            this.setState({
-                [name]: intValue
-            });
-        } else {
-            this.setState({
-                [name]: value
-            });
-        }
+        this.setState({
+            [name]: value
+        });
     };
 
     handleFormSubmit = (e) => {
@@ -63,16 +56,29 @@ class Edit extends React.Component {
         console.log(this.state)
         API.editCompanyById(this.state)
         //   .then(res => this.setState({ recipes: res.data }))
-          .catch(err => console.log(err));
+          .catch(err => console.log(err))
+          .then(console.log('company updated...'))
+          .then(() => this.setState({ toCatalog: true }))
     };
 
-    deleteComp() {
+    deleteComp = () => {
         API.deleteCompany(this.state.id)
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
+            .then(console.log('company deleted...'))
+            .then(() => this.setState({ toCatalog: true }))
     }
 
     render() {
+        if (this.state.toCatalog === true) {
+            return <Redirect to='/catalog' />
+        } 
+        else if (this.props.location.state.user === '' || this.props.location.state.user === null ) {
+            return <Redirect to='/' />
+        }
         return (
+
+            this.state ?
+
             <section className='edit-page'>
                 <h1>Edit Page</h1>
                 <div className="form">
@@ -238,6 +244,7 @@ class Edit extends React.Component {
                     </button>
                 </div>
             </section>
+            : <h1>Got nothin...</h1>
         )
     }
 }
