@@ -8,13 +8,13 @@
         position: relative;
         background: #ccc;
         margin-bottom: 15px;
+        padding: 5px 30px 5px 5px;
         cursor: pointer;
-        padding: 5px;
         h1 {
-            font: 700 20px 'Arial', sans-serif;
+            font: 700 20px 'Roboto', sans-serif;
             padding-left: 10px;
             span {
-                font: 400 italic 14px 'Arial', sans-serif;
+                font: 400 italic 14px 'Roboto', sans-serif;
             }
         }
 
@@ -49,6 +49,10 @@
             width: 50%;
             margin-bottom: 10px;
 
+            @media (max-width: 550px) {
+                display: block;
+                width: 100%;
+            }
         }
 
         .comp-address {
@@ -62,7 +66,13 @@
                 span {
                     font-weight: 700;
                 }
+
+                &.description, &.contact-name {
+                    margin-bottom: 10px;
+                }
             }
+
+            
 
         }
 
@@ -78,7 +88,24 @@
                 #revenue-chart {
                     width: 80%;
                 }
+
+                @media (max-width: 550px) {
+                    display: block;
+                    width: 90%;
+                    margin: 0 auto 20px;
+                    max-width: none;
+
+
+                    #revenue-chart, #earnings-chart {
+                        // width: 80% !important;
+                    }
+                }
             }
+
+            @media (max-width: 550px) {
+                display: block;
+            }
+
         }
     }
 

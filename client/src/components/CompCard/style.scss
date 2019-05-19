@@ -7,6 +7,14 @@
     margin: 10px;
     min-height: 200px;
 
+    @media (max-width: 768px) {
+        width: 45%;
+    }
+
+    @media (max-width: 550px) {
+        width: 90%;
+    }
+
     h1 {
         margin: 10px 20px 15px;
         padding-bottom: 4px;

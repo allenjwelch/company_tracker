@@ -1,4 +1,6 @@
 .add-page, .edit-page {
+    padding: 20px;
+
 
     input, textarea, select {
         width: 90%;
@@ -26,6 +28,11 @@
             vertical-align: top;
             width: 40%;
             padding: 10px 20px;
+
+            @media (max-width: 550px) {
+                display: block;
+                width: 90%;
+            }
         }
 
         .finance {
@@ -37,6 +44,11 @@
                 display: inline-block;
                 width: 40%;
                 margin: 5px 10px;
+
+                @media (max-width: 550px) {
+                    display: block;
+                    width: 90%;
+                }
             }
 
         }

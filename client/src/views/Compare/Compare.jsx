@@ -37,7 +37,7 @@ class Compare extends React.Component {
         }
         return (
             <section className='compare-page'>
-                <h1>Compare Page</h1>
+                <h1>Compare View</h1>
                 <div className="sort">
                     <select
                         type="text"

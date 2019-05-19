@@ -1,14 +1,15 @@
 import React from 'react'; 
 
-import './style.css'; 
+import './style.scss'; 
 
 const SignIn = (props) => {
 
     return (
         <div className="sign-in-container">
             <article className="sign-in">
+                <h3>Enter your name.</h3>
                 <input id="userName" type="text"/>
-                <input type="submit" onClick={props.signIn}/>
+                <input type="submit" onClick={props.signIn} value="Sign In"/>
             </article>
 
             <div className="overlay"></div>

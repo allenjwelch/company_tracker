@@ -58,7 +58,7 @@ class Add extends React.Component {
         }
         return (
             <section className='add-page'>
-                <h1>Add Page</h1>
+                <h1>Add a Company</h1>
                 
                 <div className="form">
 
@@ -78,10 +78,10 @@ class Add extends React.Component {
                             placeholder="Status"
                         >
                             <option value=""></option>
-                            <option value="Pending">Pending</option>
-                            <option value="Complete">Complete</option>
-                            <option value="In-Active">In-Active</option>
-                            <option value="Unknown">Unknown</option>
+                            <option value="Reasearching">Reasearching</option>
+                            <option value="Pending Approval">Pending Approval</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Declined">Declined</option>
                         </select>
                         <input
                             type="text"

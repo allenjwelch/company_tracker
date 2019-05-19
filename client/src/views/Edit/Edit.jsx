@@ -80,7 +80,7 @@ class Edit extends React.Component {
             this.state ?
 
             <section className='edit-page'>
-                <h1>Edit Page</h1>
+                <h1>Update or Delete</h1>
                 <div className="form">
                     <div className="col">
                         <input
@@ -98,10 +98,10 @@ class Edit extends React.Component {
                             placeholder="Status"
                         >
                             <option value=""></option>
-                            <option value="Pending">Pending</option>
-                            <option value="Complete">Complete</option>
-                            <option value="In-Active">In-Active</option>
-                            <option value="Unknown">Unknown</option>
+                            <option value="Reasearching">Reasearching</option>
+                            <option value="Pending Approval">Pending Approval</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Declined">Declined</option>
                         </select>
                         <input
                             type="text"

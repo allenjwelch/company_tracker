@@ -30,7 +30,7 @@ class Catalog extends React.Component {
         }
         return (
             <section className='catalog-page'>
-                <h1>Catalog Page</h1>
+                <h1>Catalog View</h1>
 
                 {
                     this.state.allCompanies ?
