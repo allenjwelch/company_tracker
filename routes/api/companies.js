@@ -4,13 +4,10 @@ var connection = require("../../config/connection.js");
 // Completes api path to .../xxx/comp/...
 router.get("/all", (req, res) => {
     console.log("Companies API has been hit");
-    // console.log(req);
-    // console.log(req.params);
-    // console.log("uid:" , req.params.uid);
 
     connection.query(`
         SELECT *
-        FROM tracker.companies;`, function(err, data) {
+        FROM companies;`, function(err, data) {
         if (err) throw err;
         // console.log(data);
         res.send(data);
