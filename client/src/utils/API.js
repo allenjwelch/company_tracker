@@ -2,19 +2,19 @@ import axios from 'axios';
 
 export default {
 
-    getAllCompanies: function(user, pass) { // just for testing..
+    getAllCompanies: function() { // just for testing..
         return axios.get(`/xxx/comp/all`)
-    },
-    getCompanyByName: function(id) {
-        return axios.get(`/xxx/comp/${id}`)
     },
     postNewCompany: function(compInfo) {
         return axios.post(`/xxx/comp/new`, {compInfo})
     },
-    editCompanyByName: function(id, compInfo) {
-        return axios.put(`/xxx/comp/${id}`, {compInfo}); 
+    editCompanyById: function(compUpdate) {
+        return axios.put(`/xxx/comp/update`, {compUpdate});
     },
     deleteCompany: function(id) {
-        return axios.delete(`/xxx/comp/bye/${id}/`)
-    }
+        return axios.delete(`/xxx/comp/byefelicia/${id}/`)
+    },
+    getCompanyByName: function(id) {
+        return axios.get(`/xxx/comp/${id}`)
+    },
 };

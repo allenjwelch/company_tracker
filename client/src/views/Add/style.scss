@@ -1,3 +1,75 @@
-.add-page {
-    
+.add-page, .edit-page {
+    padding: 20px;
+
+
+    input, textarea, select {
+        width: 90%;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        font: 400 14px 'Arial', sans-serif;
+    }
+    textarea {
+        min-height: 100px;
+    }
+    input {
+        margin: 5px 0;
+    }
+
+    select {
+        width: 95%;
+    }
+
+    .form {
+        margin: 0 auto;
+        text-align: center;
+        .col {
+            display: inline-block;
+            vertical-align: top;
+            width: 40%;
+            padding: 10px 20px;
+
+            @media (max-width: 550px) {
+                display: block;
+                width: 90%;
+            }
+        }
+
+        .finance {
+            width: 95%;
+            margin: 0 auto;
+            text-align: center;
+
+            input {
+                display: inline-block;
+                width: 40%;
+                margin: 5px 10px;
+
+                @media (max-width: 550px) {
+                    display: block;
+                    width: 90%;
+                }
+            }
+
+        }
+
+        button {
+            margin: 40px 10px;
+            width: 40%;
+            padding: 10px;
+
+            &.del-btn {
+                background: #ce2525; 
+                border: 1px solid #ce2525;
+                color: #fff;
+
+                &:hover {
+                    color: #ce2525;
+                    background: #fff;
+                }
+            }
+        }
+    }
+
+
 }

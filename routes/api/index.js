@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
 // Require routes from within api directory
-const mealRoutes = require("./companies"); 
+const compRoutes = require("./companies"); 
 
 // Routes -- Appends api path to .../xxx/...
-router.use("/comp", mealRoutes); 
+router.use("/comp", compRoutes); 
 
 module.exports = router;

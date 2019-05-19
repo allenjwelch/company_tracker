@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-y: scroll;
+}
+
 h1 {
-  color: #fff;
+  /* color: #fff; */
 }
 
 .home-page {
@@ -9,7 +16,7 @@ h1 {
 
 .App {
   text-align: center;
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: calc(100vh);
   top: 0;
 }
@@ -21,7 +28,7 @@ h1 {
 }
 
 .App p {
-  color: #fff; 
+  /* color: #fff;  */
 }
 
 .App-link {
